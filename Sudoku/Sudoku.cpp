@@ -144,8 +144,6 @@ int main()
 
 	SwapSud(ArrSud, optSwap);
 
-	cout << optSwap << endl;
-
 	PrintArr(ArrSud);
 
 	return 0;
