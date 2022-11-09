@@ -51,6 +51,36 @@ void SwapSud(int arr[9][9], int optswap)
 				tmp = arr[i][j]; arr[i][j] = arr[i + 1][j]; arr[i + 1][j] = tmp;
 			}
 		}
+
+		for (int i = 0; i < 9; i++){
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][0];arr[i][0] = arr[i][2];arr[i][2] = tmp;
+			}
+
+		}
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][3];arr[i][3] = arr[i][5];arr[i][5] = tmp;
+			}
+		}
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][6];arr[i][6] = arr[i][8];arr[i][8] = tmp;
+			}
+		}
+
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 9; j++)
+			{
+				tmp = arr[i][j];
+				arr[i][j] = arr[i + 3][j];
+				arr[i + 3][j] = tmp;
+			}
+		}
 	}
 	//TwoOpt
 	else if (optswap == TwoOpt)
@@ -71,6 +101,36 @@ void SwapSud(int arr[9][9], int optswap)
 			for (int j = 0; j < 9; j++)
 			{
 				tmp = arr[i][j]; arr[i][j] = arr[i + 1][j]; arr[i + 1][j] = tmp;
+			}
+
+		}
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][0];arr[i][0] = arr[i][1];arr[i][1] = tmp;
+			}
+
+		}
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][3];arr[i][3] = arr[i][4];arr[i][4] = tmp;
+			}
+		}
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][6];arr[i][6] = arr[i][7];arr[i][7] = tmp;
+			}
+		}
+	
+		for (int i = 0; i < 3; i++)
+		{
+			for (int j = 0; j < 9; j++)
+			{
+				tmp = arr[i][j];
+				arr[i][j] = arr[i + 6][j];
+				arr[i + 6][j] = tmp;
 			}
 		}
 	}
@@ -95,7 +155,42 @@ void SwapSud(int arr[9][9], int optswap)
 				tmp = arr[6][j]; arr[6][j] = arr[8][j]; arr[8][j] = tmp;
 			}
 		}
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][1];arr[i][1] = arr[i][2];arr[i][2] = tmp;
+			}
+
+		}
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][4];arr[i][4] = arr[i][5];arr[i][5] = tmp;
+			}
+		}
+		for (int i = 0; i < 9; i++) {
+			for (int j = 0; j < 1; j++)
+			{
+				tmp = arr[i][7];arr[i][7] = arr[i][8];arr[i][8] = tmp;
+			}
+		}
+		
+		for (int i = 3; i < 6; i++)
+		{
+			for (int j = 0; j < 9; j++)
+			{
+				tmp = arr[i][j];
+				arr[i][j] = arr[i + 3][j];
+				arr[i + 3][j] = tmp;
+			}
+		}
 	}
+}
+
+//Функция шифрования
+void PazzSud(int arr[9][9])
+{
+	
 }
 
 int main()
@@ -139,10 +234,14 @@ int main()
 		case 5: firstnum = 3;break;
 		}
 	}
+	
+	SwapSud(ArrSud, optSwap);
 
 	PrintArr(ArrSud);
 
-	SwapSud(ArrSud, optSwap);
+	PazzSud(ArrSud);
+
+	cout << "\n\n";
 
 	PrintArr(ArrSud);
 
