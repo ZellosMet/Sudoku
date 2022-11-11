@@ -14,16 +14,25 @@ enum OptSwap
 };
 
 //Функция вывода
-void PrintArr(int arr[9][9])
+void WriteSud(int arr[9][9])
 {
+	ofstream Sudoku("Sudoku.txt");
+
 	for (int i = 0; i < 9; i++)
 	{
 		for (int j = 0; j < 9; j++)
 		{
-			cout << arr[i][j] << " ";
+			if (!(arr[i][j]==0))
+			{
+				Sudoku << "|" << arr[i][j] << "|";
+			}	
+			else
+			{
+				Sudoku << "| |";
+			}
 		}
-		cout << endl;
-	}
+		Sudoku << endl << "---------------------------" << endl;
+	} 
 }
 
 //Функция перемешки
@@ -190,7 +199,21 @@ void SwapSud(int arr[9][9], int optswap)
 //Функция шифрования
 void PazzSud(int arr[9][9])
 {
-	
+	int cntPazz = 0;
+	int cntZer = 0;
+	int i, j;
+	i = j = 0;
+
+	while (!(cntPazz==40))
+	{
+		i = rand() % 9;
+		j = rand() % 9;
+		if (!(arr[i][j] == 0))
+		{
+			arr[i][j] = 0;
+			cntPazz++;
+		}
+	}	
 }
 
 int main()
@@ -198,7 +221,6 @@ int main()
 	setlocale(LC_ALL, "ru");
 	srand(time(NULL));
 
-	string path = "Sudoku.txt";
 	int optSwap = rand() % 3 + 1;
 	int ArrSud[9][9];
 	int firstnum = 1;
@@ -237,13 +259,9 @@ int main()
 	
 	SwapSud(ArrSud, optSwap);
 
-	PrintArr(ArrSud);
-
 	PazzSud(ArrSud);
 
-	cout << "\n\n";
-
-	PrintArr(ArrSud);
+	WriteSud(ArrSud);
 
 	return 0;
 }
