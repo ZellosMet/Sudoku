@@ -1,11 +1,11 @@
-#include<iostream>
+п»ї#include<iostream>
 #include<ctime>
 #include<string>
 #include<fstream>
 
 using namespace std;
 
-//Список выбранных вариантов перемешки
+//РЎРїРёСЃРѕРє РІС‹Р±СЂР°РЅРЅС‹С… РІР°СЂРёР°РЅС‚РѕРІ РїРµСЂРµРјРµС€РєРё
 enum OptSwap
 {
 	OneOpt = 1,
@@ -13,7 +13,7 @@ enum OptSwap
 	TreeOpt
 };
 
-//Функция вывода
+//Р¤СѓРЅРєС†РёСЏ РІС‹РІРѕРґР°
 void WriteSud(int arr[9][9])
 {
 	ofstream Sudoku("Sudoku.txt");
@@ -28,14 +28,14 @@ void WriteSud(int arr[9][9])
 			}	
 			else
 			{
-				Sudoku << "| |";
+				Sudoku << "|  |";
 			}
 		}
-		Sudoku << endl << "---------------------------" << endl;
+		Sudoku << endl << "------------------------" << endl;
 	} 
 }
 
-//Функция перемешки
+//Р¤СѓРЅРєС†РёСЏ РїРµСЂРµРјРµС€РєРё
 void SwapSud(int arr[9][9], int optswap)
 {
 	int tmp;
@@ -196,7 +196,7 @@ void SwapSud(int arr[9][9], int optswap)
 	}
 }
 
-//Функция шифрования
+//Р¤СѓРЅРєС†РёСЏ С€РёС„СЂРѕРІР°РЅРёСЏ
 void PazzSud(int arr[9][9])
 {
 	int cntPazz = 0;
@@ -226,7 +226,7 @@ int main()
 	int firstnum = 1;
 	int endnum;
 
-	//Заполнение матрици
+	//Р—Р°РїРѕР»РЅРµРЅРёРµ РјР°С‚СЂРёС†Рё
 	for (int i = 0; i < 9; i++)
 	{
 		for (int j = 0; j < 9; j++)
@@ -239,7 +239,7 @@ int main()
 				firstnum = 1;
 			}
 		}
-		//Проверка на смещение
+		//РџСЂРѕРІРµСЂРєР° РЅР° СЃРјРµС‰РµРЅРёРµ
 		switch (endnum)
 		{
 		case 2: firstnum = 5;break;
